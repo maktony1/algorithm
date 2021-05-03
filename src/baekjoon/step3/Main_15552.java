@@ -25,8 +25,8 @@ public class Main_15552 {
             bw.write(sum);
             bw.newLine();
         }
+        br.close();
         bw.flush(); //for문안에 한번씩 출력하는게 아니라 bw 에 기록하고 모아뒀다가 한번에 출력해버리기!!
         bw.close();
-        br.close();
     }
 }

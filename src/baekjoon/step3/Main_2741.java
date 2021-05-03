@@ -9,6 +9,7 @@ public class Main_2741 {
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
         int num = Integer.parseInt(br.readLine());
+        br.close();
 
         for (int i = 1; i <= num; i++) {
             bw.write(String.valueOf(i));
@@ -16,6 +17,5 @@ public class Main_2741 {
         }
         bw.flush();
         bw.close();
-        br.close();
     }
 }
