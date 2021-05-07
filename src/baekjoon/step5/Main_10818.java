@@ -13,7 +13,7 @@ public class Main_10818 {
 
         int[] arr = new int[num];
         int min = 1000000;
-        int max = 1;
+        int max = -1000000;
 
         for (int i = 0; i < arr.length; i++) {
 
@@ -23,8 +23,11 @@ public class Main_10818 {
             } else if (arr[i] > max) {
                 max = arr[i];
             }
-        }
-        System.out.print(min+" ");
-        System.out.println(max);
+        }//end of for
+        br.close();
+        bw.write(String.valueOf(min)+" ");
+        bw.write(String.valueOf(max));
+        bw.flush();
+        bw.close();
     }
 }
