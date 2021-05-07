@@ -12,15 +12,16 @@ public class Main_10818 {
         StringTokenizer st = new StringTokenizer(br.readLine(), " ");
 
         int[] arr = new int[num];
-        int min = 1000000;
-        int max = -1000000;
+        int min = 1000001;
+        int max = -1000001;
 
         for (int i = 0; i < arr.length; i++) {
 
             arr[i] = Integer.parseInt(st.nextToken());
             if (arr[i] < min) {
                 min = arr[i];
-            } else if (arr[i] > max) {
+            }
+            if (arr[i] > max) {
                 max = arr[i];
             }
         }//end of for
