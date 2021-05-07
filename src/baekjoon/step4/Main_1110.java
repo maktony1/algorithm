@@ -14,14 +14,13 @@ public class Main_1110 {
         int sum = initValue;
         int count = 0;
         if (initValue == 0) {
-            bw.write("0");
+            bw.write("1");
         } else {
 
             while (initValue != num) {
-                count++;
                 sum = (sum % 10 * 10) + (sum / 10 + sum % 10) % 10;
-
                 num = sum;
+                count++;
                 if (initValue == num) {
                     break;
                 }
