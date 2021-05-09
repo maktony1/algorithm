@@ -25,6 +25,7 @@ public class Main_10818 {
                 max = arr[i];
             }
         }//end of for
+
         br.close();
         bw.write(String.valueOf(min)+" ");
         bw.write(String.valueOf(max));
