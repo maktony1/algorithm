@@ -23,8 +23,6 @@ public class Main_10809 {
         }
         System.out.println(Arrays.toString(alphCheck));
         bw.write(Arrays.toString(alphCheck));
-
-
     }
 }
 
