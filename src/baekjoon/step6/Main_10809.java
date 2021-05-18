@@ -15,14 +15,18 @@ public class Main_10809 {
         for (int i = 0; i < alphCheck.length; i++) {
             alphCheck[i] = -1;
         }
-//        a=97 b=98
-        for (int i = 0; i < alphCheck.length; i++) {
-            if (i+'a' == s.charAt(i)) {
-                System.out.println(11111111);
+        for (int i = 'a'; i < 'a' + alphCheck.length; i++) {
+            for (int j = 0; j < s.length(); j++) {
+                if (i == s.charAt(j) && alphCheck[i - 'a'] == -1) {
+                    alphCheck[i - 'a'] = j;
+                }
             }
         }
-        System.out.println(Arrays.toString(alphCheck));
-        bw.write(Arrays.toString(alphCheck));
+        for (int i = 0; i < alphCheck.length; i++) {
+            bw.write(alphCheck[i]+" ");
+        }
+        bw.flush();
+        bw.close();
     }
 }
 
