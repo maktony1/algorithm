@@ -1,4 +1,4 @@
-package baekjoon.step6;
+package baekjoon.step7;
 
 import java.io.*;
 import java.util.Arrays;
