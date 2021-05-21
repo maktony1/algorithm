@@ -1,26 +1,20 @@
 package baekjoon.step7;
 
-import java.io.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class Main_1152 {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
-        String str = br.readLine();
+//        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        StringTokenizer st = new StringTokenizer(br.readLine());
         br.close();
-
-        int cnt = 0;
-        for (int i = 0; i < str.length(); i++) {
-            if (String.valueOf(str.charAt(i)).equals(" ")) {
-                if (String.valueOf(str.charAt(i)) != null) {
-                    cnt++;
-                }
-            }
-        }
-        bw.write(String.valueOf(cnt));
-        bw.flush();
-        bw.close();
+        System.out.println(st.countTokens());
+//        bw.write(String.valueOf(st.countTokens()));
+//        bw.flush();
+//        bw.close();
     }
 }
 
