@@ -10,6 +10,7 @@ public class Main_2908 {
         br.close();
         String firstNum = st.nextToken();
         String secondNum = st.nextToken();
+        //문자 자리바꾸기
         firstNum = String.valueOf(firstNum.charAt(2)) + firstNum.charAt(1) + firstNum.charAt(0);
         secondNum = String.valueOf(secondNum.charAt(2)) + secondNum.charAt(1) + secondNum.charAt(0);
 
