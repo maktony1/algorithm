@@ -9,6 +9,9 @@ public class Main_2941 {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
         String CroatiaAlphabet =br.readLine();
+        for (int i = 0; i < ; i++) {
+            
+        }
 
     }
 }
