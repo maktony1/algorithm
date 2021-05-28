@@ -10,7 +10,7 @@ public class Main_1316 {
 
         int tc = Integer.parseInt(br.readLine());
         String str;
-        int cnt = tc;
+        int cnt = 0;
 
         for (int i = 0; i < tc; i++) {
             System.out.println();
@@ -19,19 +19,27 @@ public class Main_1316 {
             //첫 단어 체크
             loop:
             for (int j = 0; j < str.length(); j++) {
-                if (str.charAt(j) < str.length() - 2 && str.charAt(j) != str.charAt(j)) {
-                    for (int k = j + 2; k < str.length() - j - 2; k++) {
-                        if (str.charAt(j) == str.charAt(k)) {
-                            break loop;
-                        } else {
-                            cnt++;
+
+                //3글자 미만 일 경우
+                if (3 > str.length()) {
+                    cnt++;
+                    break loop;
+                }//3글자 미만 일 경우 끝
+
+                //3글자 이상 일 경우
+                if (3 <= str.length()) {
+                    if (j < str.length() - 2) {
+                        for (int k = j; k < str.length() - 2; k++) {
+                            if (str.charAt(k) != str.charAt(k + 1) && str.charAt(k) == str.charAt(k + 2)) {
+                                break loop;
+                            }
                         }
                     }
                 }
             }
-
-        }
-        System.out.println("cnt = "+cnt);
+            cnt++;
+        }//end of tc
+        System.out.println("cnt = " + cnt);
     }
 }
 
