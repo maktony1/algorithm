@@ -28,81 +28,77 @@ public class NumRooms {
             }
         }//여기까지 배열에 삽입 완료
 /////////////////////////////////////////////이 위에는 크게 건드릴 필요 없음///////////////////////////////////////////
-
-
-//        //변수가 잘 들어 갔는지 확인
-//        System.out.println("N은 = " + N + "\nS는 = " + S);//////////////지울부분 시작
-//        //테스트 배열에 잘 들어갔는지 확인
-//        for (int i = 0; i < rooms.length; i++) {
-//            System.out.println(Arrays.toString(rooms[i]));
-//        }//배열에 잘 들어갔는지 확인 끝                         //////////////지울부분 끝
-//        for (int i = 0; i < rooms.length; i++) {
-//            System.out.println(Arrays.toString(roomCheck[i]));
-//        }
-
         sum = 0;
-        //가로 체크
-        loop:
-        for (int i = 0; i < rooms.length; i++) {
-            for (int j = 0; j < rooms.length; j++) {
-                if (sum < S) {
-                    for (int k = j; k < rooms.length; k++) {
-                        sum += rooms[i][k];
-                        roomCheck[i][k] = true;
-                        if (sum > S) {
-                            sum -= rooms[i][k];
-                            roomCheck[i][k] = false;
-                            k--;
-                            break;
+        for (int ii = 0; ii < N; ii++) {
+            for (int jj = 0; jj < N; ) {
+                for (int i = ii; i < N; i++) {
+                    for (int j = jj; j < N; j++) {
+                        if (S > sum) { // sum이 작을 경우
+                            sum += rooms[i][j];
+                            roomCheck[i][j] = true;
                         }
-                    }
-                    for (int k2 = i; k2 < rooms.length; k2++) {
-                        sum += rooms[i][k2];
-                        roomCheck[i][k2] = true;
-                        if (sum == S) {
+                        //S와 같은경우 가로안에 한번 세로에 한번
 
-                        }
-                    }
-                }
-                if (sum == S) {
-                    for (int l = 0; l < rooms.length; l++) {
-                        for (int m = 0; m < rooms.length; m++) {
-                            if (roomCheck[l][m] == true) {
-                                System.out.println(rooms[l][m]);
-                            }
-                        }
-                    }
-                }
-                if (sum > S) { //더한 수가 초과 하면
-                    sum -= rooms[i][j];
-                    roomCheck[i][j] = false;
-                    j--;
-
-                    turn = true; //방향 전환 체크
-                    //전환 후 아래방향 체크
-                    for (int k = i + 1; k < rooms.length; k++) {
-                        sum += rooms[k][j];
-                        roomCheck[k][j] = true;
-                        if (sum == S) {
-                            for (int l2 = 0; l2 < rooms.length; l2++) {
-                                for (int m2 = 0; m2 < rooms.length; m2++) {
-                                    if (roomCheck[l2][m2] == true) {
-                                        System.out.println(rooms[l2][m2]);
+                        if (S == sum) { // sum이 같을경우
+                            //경로 출력하기 && 출력 후에 체크 초기화
+                            for (int k = 0; k < N; k++) {
+                                for (int l = 0; l < N; l++) {
+                                    if (roomCheck[k][l] == true) {
+                                        System.out.print(rooms[k][l]);
+                                        roomCheck[k][l] = false;
                                     }
                                 }
                             }
-                            break loop;
                         }
-                        if (sum > S) {
-                            sum -= rooms[k][j];
-                            roomCheck[k][j] = false;
 
+                        if (S < sum) { // sum이 초과한 경우 한칸 뒤로 물러난 후 아래로 turn
+                            sum -= rooms[i][j];
+                            roomCheck[i][j] = false;
+                            j--;
+
+                            turn = true;
+
+                            for (int k = i + 1; k < N; k++) {
+                                if (S > sum) {
+                                    sum += rooms[k][j];
+                                    roomCheck[k][j] = true;
+                                }
+                                if (S == sum) {
+                                    for (int l = 0; l < N; l++) {
+                                        for (int m = 0; m < N; m++) {
+                                            if (roomCheck[l][m] == true) {
+                                                System.out.print(rooms[l][m]);
+                                                roomCheck[l][m] = false;
+                                            }
+                                        }
+                                    }
+                                    sum = 0;
+                                } //end of if
+
+                                if (S < sum) {
+                                    sum -= rooms[k][j];
+                                    roomCheck[k][j] = false;
+                                    //초기화
+                                    for (int l = 0; l < N; l++) {
+                                        for (int m = 0; m < N; m++) {
+                                            if (roomCheck[l][m] == true) {
+                                                System.out.print(rooms[l][m]);
+                                                roomCheck[l][m] = false;
+                                            }
+                                        }
+                                    }
+                                    sum = 0;
+                                    break;
+                                }
+                            }//end of for
+                            jj++;
+                            break;
                         }
                     }
                 }
-            }//end of for(j)
-        }//end of for(i)
 
+            }
+        }
 
     }//end of main
 }//end of class
