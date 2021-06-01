@@ -7,8 +7,10 @@ import java.util.StringTokenizer;
 public class NumRooms {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader("C:\\NewDeal\\algorithm\\src\\synapsoft\\num_rooms.txt"));
+//        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         StringTokenizer st;
+
         int N = Integer.parseInt(br.readLine());
         int S = Integer.parseInt(br.readLine());
         int sum;
@@ -27,7 +29,6 @@ public class NumRooms {
                 rooms[i][j] = Integer.parseInt(st.nextToken());
             }
         }//여기까지 배열에 삽입 완료
-/////////////////////////////////////////////이 위에는 크게 건드릴 필요 없음///////////////////////////////////////////
 
         sum = 0;
         for (int repeat = 0; repeat < N; repeat++) {
