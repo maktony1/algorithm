@@ -20,8 +20,8 @@ public class Main_1316 {
                 cnt++;
             }
             if (str.length() > 2) {
-                charArray = new String[str.length()];
-                charArray =str.split("");
+                charArray = new String[str.length()];   //문자 길이만큼 배열 생성
+                charArray =str.split("");   //문자1개씩 나눠서 배열에 넣기
                 System.out.println(charArray.length);
                 for (int j = 0; j < str.length(); j++) {
                 }
